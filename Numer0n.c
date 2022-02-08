@@ -4,7 +4,7 @@
 #include <time.h>
 
 void create_enemy_number(int *num, int difficulty);
-int hit_bite_judge(int my_num[], int ene_num[], int difficulty);
+int eat_bite_judge(int my_num[], int ene_num[], int difficulty);
 int number_check(int num, int array[], int difficulty);
 void num_format(int *num, int difficulty);
 void Numer0n(int difficulty);
@@ -31,10 +31,10 @@ void create_enemy_number(int *num, int difficulty){
     }
 }
 
-//hit,biteの判定かつ発言関数(3hitの場合は1,それ以外は0を返す)
-int hit_bite_judge(int my_num[], int ene_num[], int difficulty){
+//eat,biteの判定かつ発言関数(3hitの場合は1,それ以外は0を返す)
+int eat_bite_judge(int my_num[], int ene_num[], int difficulty){
 
-    int hit = 0;
+    int eat = 0;
     int bite = 0;
     int i,j; //for文用
 
@@ -47,7 +47,7 @@ int hit_bite_judge(int my_num[], int ene_num[], int difficulty){
         for(j=0; j<difficulty; j++){
             if(ene_num[i] == my_num[j]){
                 if(i == j)
-                    hit++;
+                    eat++;
                 else
                     bite++;
             }
@@ -55,10 +55,10 @@ int hit_bite_judge(int my_num[], int ene_num[], int difficulty){
     }
         
     sleep(1); //お楽しみ要素
-    printf("%d hit %d bite です。\n",hit,bite);
+    printf("%d eat %d bite です。\n",eat,bite);
 
     //クリアかどうか判定
-    return ( hit == difficulty ) ? 1 : 0;
+    return ( eat == difficulty ) ? 1 : 0;
 }
 
 //数字が配列の中にあるかどうかをチェックする関数(あれば0,なければ1)
@@ -203,7 +203,7 @@ void Numer0n(int difficulty){
                 }
 
                 //数字入力終了後、hit,bite判定
-                result = hit_bite_judge(player_num, enemy_num, difficulty);
+                result = eat_bite_judge(player_num, enemy_num, difficulty);
                 break;
 
             case 2: //high and low を使用する場合
