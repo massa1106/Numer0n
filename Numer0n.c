@@ -131,6 +131,7 @@ int target(int num[], int target_num, int difficulty){
     return -1;
 }
 
+
 //ゲームの中身
 void Numer0n(int difficulty){
     
