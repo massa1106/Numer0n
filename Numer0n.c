@@ -157,13 +157,6 @@ void Numer0n(int difficulty){
 
     create_enemy_number(enemy_num, difficulty); //敵の数字を作る
 
-    //仮
-    printf("敵の数字は");
-    for(i=0; i<difficulty; i++){
-        printf("%d",enemy_num[i]);
-    }
-    puts("");
-
     do{
         sleep(1);
         if(skill){ //skillが0じゃなかったら
